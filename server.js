@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 
 // Initialize Express
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 // set up handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -44,6 +45,6 @@ app.use(bodyParser.json())
 
 
 // Listen on port 3000
-app.listen(3000, function() {
+app.listen(PORT, function() {
   console.log("App running on port 3000!");
 });
