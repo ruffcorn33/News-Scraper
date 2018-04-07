@@ -1,5 +1,8 @@
 
-body { background-color: #F2F6D0 }
+body { 
+  background-color: #e9ecef
+}
+
 #wrapper {
   width: 960px;
   margin-left: auto;
@@ -7,7 +10,7 @@ body { background-color: #F2F6D0 }
   padding-top: 5%;
 }
 
-#articles {
+#postings {
   display: inline-block;
   overflow: auto;
   width: 60%;
@@ -22,7 +25,7 @@ body { background-color: #F2F6D0 }
 textarea, input {
   display: block;
   width: 100%;
-  background-color: #FCF5C7;
+  background-color: white;
 }
 
 input {

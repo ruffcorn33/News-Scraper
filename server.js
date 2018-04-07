@@ -2,10 +2,13 @@
 // DEPENDENCIES
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const express = require("express");
-// const exphbs  = require('express-handlebars');
+const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 const logger = require("morgan");
 const mongoose = require('mongoose');
+
+// Require all database models
+const db = require("./models");
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // EXPRESS SERVER
@@ -42,7 +45,7 @@ mongoose.connect("mongodb://localhost/hackernews",
   // useMongoClient: true
 });
 // If deployed, use the deployed database. Otherwise use the local mongo
-// Headlines database
+// Postings database
 // note: the heroku app is https://git.heroku.com/sheltered-springs-65221.git
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/hackernews";
 
@@ -50,14 +53,13 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/hackernews";
 // HANDLEBARS
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // set up handlebars to be the default templating engine
-// and change the extension from .handlebars to .hbs
-// app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
-// app.set('view engine', '.hbs');
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Routes
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-require("./routes/api/api-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // Listen on port 3000
 app.listen(PORT, function() {

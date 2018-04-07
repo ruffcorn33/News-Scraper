@@ -1,0 +1,33 @@
+<div class="container-fluid px-2">
+  <div class="col-lg-12" id="search-results">
+
+    {{#each postings}}
+
+    <div id={{this.id}}>
+        <div class="card mb-4">
+          <h3 class="card-header bg-primary text-white">{{this.title}}</h3>
+          <div class="card-body">
+            <p class="card-text">Posted {{this.age}}</p>
+            <button class="btn btn-success btn-sm" id="saveposting" data-id={{this.id}}>Save Posting</button>
+          </div>
+        </div>
+    </div>
+
+    {{/each}}
+    
+    {{#if postings}}
+    <footer class="footer py-3">
+      <div class="container text-center">
+        <button type="button" class="btn btn-light btn-sm" id="cleardb">Clear Database</button>
+      </div>
+    </footer>
+    {{else}}
+      <div class="card">
+        <h3 class="card-header bg-info text-white text-center">
+          Let's scrape some job postings.
+        </h3>
+      </div>
+     {{/if}}
+
+  </div>
+</div>

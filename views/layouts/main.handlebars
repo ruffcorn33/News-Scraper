@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hacker News Scraper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-info">
+      <span class="navbar-brand mb-0 h1">Hacker News Jobs</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+          <span class="nav-item">&nbsp;</span>
+        </div>
+        <div class="navbar-nav">
+          <button type="button" id="scrapeBtn" class="btn btn-danger btn-sm">Scrape For Jobs</button>
+        </div>
+      </div>
+      </div>
+    </nav>
+
+    <!-- Results modal -->
+    <div id="jobsModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Scrape Results</h5>
+            <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="text-center" id="numJobs"></p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Job Postings on Hacker News</h1>
+      <p class="lead"><a href="https://news.ycombinator.com/news" target="_blank">Hacker News</a> is a social news website focusing on computer science and entrepreneurship. In general, content that can be submitted is defined as "anything that gratifies one's intellectual curiosity".  This site is scraping their jobs page.  </p>
+    </div>
+
+    <!-- <div id="wrapper">
+      <h1></h1>
+      <div id="postings"></div>
+      <div id="notes"></div>
+    </div> -->
+
+    {{{ body }}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
